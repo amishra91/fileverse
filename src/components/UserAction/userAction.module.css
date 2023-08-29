@@ -1,0 +1,19 @@
+.userActionContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.userActionContainer * {
+  flex: 0 0 30%;
+}
+
+.userInputWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+}

@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { RainbowKitProvider } from '@rainbow-me/rainbowkit';
+import { WagmiConfig } from 'wagmi';
+import { chains, wagmiClient } from './libraries/blockchain/rainbowkit';
+
+import Header from './components/Header/header';
+import UserAction from './components/UserAction/userAction';
+
+import '@rainbow-me/rainbowkit/styles.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <WagmiConfig client={wagmiClient}>
+        <RainbowKitProvider
+          chains={chains}
+          showRecentTransactions={true}
+          appInfo={{
+            appName: 'Fileverse',
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Header />
+          <UserAction />
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </>
   );
 }
 
